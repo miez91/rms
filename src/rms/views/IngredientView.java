@@ -15,10 +15,10 @@ package rms.views;
  *
  * @author xmiez
  */
-public class InventoryView extends javax.swing.JInternalFrame {
+public class IngredientView extends javax.swing.JInternalFrame {
 
     /** Creates new form InventoryView */
-    public InventoryView() {
+    public IngredientView() {
         initComponents();
     }
 
@@ -38,27 +38,42 @@ public class InventoryView extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Inventory");
+        setTitle("Ingredient");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Carrots", "kg", "3", "5"},
-                {"Cheese", "kg", "2", "4"},
-                {"Patty", "kg", "10", "15"},
-                {"Buns", "pcs", "10", "23"},
-                {"Pepper", "kg", "1", "1"},
-                {"Ketchup", "liter", "5", "2"},
-                {"Pasta", "kg", "4", "5"}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Ingredient", "Unit", "Min. Level", "On Stock"
+                "Name", "Description", "Unit", "Min. Qty", "Qty"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Float.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
-        jButton2.setText("Update");
+        jButton2.setText("Delete");
+        jButton2.setAutoscrolls(true);
 
-        jButton1.setText("Refresh");
+        jButton1.setText("Add");
+        jButton1.setActionCommand("Add");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -88,6 +103,10 @@ public class InventoryView extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
